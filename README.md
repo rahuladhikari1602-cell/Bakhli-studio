@@ -1,3 +1,5 @@
+'use client'
+
 export default function BakhliStudioWebsite() {
   return (
     <div className="bg-black text-white min-h-screen font-sans">
@@ -53,18 +55,6 @@ export default function BakhliStudioWebsite() {
               We create modern, functional, and timeless interiors using premium fittings,
               concealed systems, and luxury design concepts.
             </p>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="border border-zinc-800 rounded-2xl p-6 bg-black">
-                <h3 className="text-3xl font-bold text-yellow-500">100+</h3>
-                <p className="text-zinc-400 mt-2">Luxury Concepts</p>
-              </div>
-
-              <div className="border border-zinc-800 rounded-2xl p-6 bg-black">
-                <h3 className="text-3xl font-bold text-yellow-500">Premium</h3>
-                <p className="text-zinc-400 mt-2">Hardware Solutions</p>
-              </div>
-            </div>
           </div>
 
           <div>
@@ -117,52 +107,41 @@ export default function BakhliStudioWebsite() {
       {/* Projects */}
       <section id="projects" className="py-24 px-8 md:px-20 bg-zinc-950">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-yellow-500 mb-4">Featured Projects</h2>
-          <p className="text-zinc-400 text-lg">Luxury Spaces Crafted With Precision</p>
+          <h2 className="text-5xl font-bold text-yellow-500 mb-4">Featured Hardware</h2>
+          <p className="text-zinc-400 text-lg">Premium Architectural Hardware Collection</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            'https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1200',
-            'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1200',
-            'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1200'
-          ].map((img, index) => (
-            <div key={index} className="overflow-hidden rounded-3xl border border-zinc-800 group">
+            {
+              img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200',
+              title: 'Concealed Hinges'
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200',
+              title: 'Sliding Fittings'
+            },
+            {
+              img: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200',
+              title: 'Glass Hinges'
+            }
+          ].map((item, index) => (
+            <div key={index} className="overflow-hidden rounded-3xl border border-zinc-800 group bg-black">
               <img
-                src={img}
-                alt="Project"
+                src={item.img}
+                alt={item.title}
                 className="h-[400px] w-full object-cover group-hover:scale-110 transition duration-700"
               />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24 px-8 md:px-20 bg-black text-center">
-        <h2 className="text-5xl font-bold text-yellow-500 mb-14">Why Choose Us</h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            'Premium Global Hardware',
-            'Architect Friendly Solutions',
-            'Luxury Design Concepts',
-            'Site Support & Consultation',
-            'Modern Smart Space Planning',
-            'Trusted Project Execution'
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="border border-zinc-800 rounded-3xl p-8 bg-zinc-950 text-lg hover:border-yellow-500 transition"
-            >
-              {item}
+              <div className="p-6 text-center text-xl text-yellow-500 font-semibold">
+                {item.title}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 px-8 md:px-20 bg-zinc-950">
+      <section id="contact" className="py-24 px-8 md:px-20 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold text-yellow-500 mb-6">Let's Build Luxury Together</h2>
 
@@ -171,15 +150,20 @@ export default function BakhliStudioWebsite() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
+            <a
+              href="https://wa.me/919999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold hover:scale-105 transition"
+            >
               WhatsApp Us
-            </button>
+            </a>
 
             <a
               href="https://www.instagram.com/bakhli.studio/"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-yellow-500 text-yellow-500 px-8 py-4 rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition inline-flex items-center justify-center cursor-pointer"
+              className="border border-yellow-500 text-yellow-500 px-8 py-4 rounded-full font-semibold hover:bg-yellow-500 hover:text-black transition inline-flex items-center justify-center"
             >
               Instagram Page
             </a>
@@ -194,3 +178,30 @@ export default function BakhliStudioWebsite() {
     </div>
   )
 }
+
+/*
+========================================
+DEPLOYMENT SETUP
+========================================
+
+1. Create Next.js App
+Run:
+npx create-next-app@latest bakhli-studio
+
+2. Install Tailwind:
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+3. Replace app/page.js with this code.
+
+4. Run Project:
+npm run dev
+
+5. Upload complete folder to GitHub.
+
+6. Import GitHub repo in Vercel.
+
+7. Deploy.
+
+========================================
+*/
